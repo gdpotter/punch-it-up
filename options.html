@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>Punch-it-up options</title>
+<script>
+function save_options() {
+	var check = document.getElementById("show_message");
+	if (check.checked) {
+		localStorage["show_message"] = 'true';
+	} else {
+		localStorage["show_message"] = 'false';
+	}
+}
+
+function load_options() {
+	var check = document.getElementById("show_message");
+	if (!(localStorage["show_message"] == 'false')) {
+		check.checked = true;
+	}
+}
+</script>
+</head>
+<body onload="load_options();">
+<h1>Punch it Up</h1>
+<input type="checkbox" name="show_message" id="show_message" value="show_message" />Show message<br />
+<button onclick="save_options();">Save</button>
+</body>
